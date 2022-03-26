@@ -97,4 +97,14 @@ class SpecialitySDJpaServiceTest {
 
         verify(specialtyRepository).findById(1L);
     }
+
+    @Test
+    void testDelete() {
+
+        specialitySDJpaService.delete(new Speciality());
+
+        // Using Argument Matchers.
+        // In case we not want to verify against a specific value but just the type
+        verify(specialtyRepository).delete(any(Speciality.class));
+    }
 }
